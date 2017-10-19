@@ -42,6 +42,7 @@ exclude:
   - CNAME
   - tags*
   - Gemfile*
+  - Rakefile
 
   # is suggested by
   # http://jekyllrb.com/docs/continuous-integration/#configuring-your-travis-builds
@@ -60,8 +61,6 @@ collections:
   howto:
     output: true
   man:
-    output: true
-  person:
     output: true
   rfc:
     output: true
