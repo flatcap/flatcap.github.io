@@ -11,11 +11,11 @@ name: NeoMutt
 email: rich@flatcap.org
 description: Teaching an Old Dog New Tricks
 
-url: https://www.neomutt.org
+# url: https://www.neomutt.org
 
 baseurl: ''
-github_username:  neomutt
-github: 'neomutt/neomutt'
+# github_username:  neomutt
+# github: 'neomutt/neomutt'
 
 highlighter: rouge
 markdown: kramdown
@@ -23,7 +23,7 @@ markdown: kramdown
 timezone: UTC
 
 # Google Analytics
-gaaccount: 'UA-377438-9'
+# gaaccount: 'UA-377438-9'
 
 permalink: /:year/:month/:day/:title
 excerpt_separator: ""
