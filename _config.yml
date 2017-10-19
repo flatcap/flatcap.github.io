@@ -72,6 +72,7 @@ plugins:
   - jekyll-sitemap
   - algoliasearch-jekyll
   - jekyll-mentions
+  - jekyll-optional-front-matter
 
 algolia:
   application_id: '6J1SGGRMOD'
