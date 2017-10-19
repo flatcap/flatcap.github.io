@@ -1,0 +1,133 @@
+---
+layout: concertina
+title: Multiple FCC
+description: Save multiple copies of outgoing mail
+since: 2016-08-08
+status: stable
+---
+{% raw %}
+<div class="chapter">
+  <div class="titlepage">
+    <div>
+      <div>
+        <h1 class="title">
+        <a class="offset" id="feature/multiple-fcc"></a>Multiple FCC Feature</h1>
+      </div>
+      <div>
+        <h3 class="subtitle">
+          <em>Save multiple copies of outgoing mail</em>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="support"></a>1.&#160;Support</h2>
+        </div>
+      </div>
+    </div>
+    <p>
+    <span class="bold">
+      <strong>Since:</strong>
+    </span>NeoMutt 2016-08-08</p>
+    <p>
+    <span class="bold">
+      <strong>Dependencies:</strong>
+    </span>None</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="intro"></a>2.&#160;Introduction</h2>
+        </div>
+      </div>
+    </div>
+    <p>This feature allows the user to save outgoing emails in multiple folders.</p>
+    <p>Folders should be listed separated by commas,
+    <span class="bold">
+      <strong>but no spaces</strong>
+    </span>.</p>
+    <p>The
+    <span class="quote">“
+    <span class="quote">fcc</span>”</span> field of an email can be set in two ways:</p>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>The &lt;edit-fcc&gt; command in the compose menu (default key:
+          <span class="quote">“
+          <span class="quote">f</span>”</span>)</p>
+        </li>
+        <li class="listitem">
+          <p>Creating a
+          <code class="literal">fcc-hook</code> in your
+          <code class="literal">.neomuttrc</code></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="see-also"></a>3.&#160;See Also</h2>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>
+            <a class="link" href="/guide/reference.html#record" title="3.275.&#160;record">$record</a>
+          </p>
+        </li>
+        <li class="listitem">
+          <p>
+            <a class="link" href="/guide/configuration.html#fcc-hook" title="17.&#160;Specify Default Fcc: Mailbox When Composing">fcc-hook</a>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="known-bugs"></a>4.&#160;Known Bugs</h2>
+        </div>
+      </div>
+    </div>
+    <p>None</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="credits"></a>5.&#160;Credits</h2>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>Omen Wild
+          <code class="email">&lt;
+          <a class="email" href="mailto:omen@mandarb.com">omen@mandarb.com</a>&gt;</code></p>
+        </li>
+        <li class="listitem">
+          <p>Richard Russon
+          <code class="email">&lt;
+          <a class="email" href="mailto:rich@flatcap.org">rich@flatcap.org</a>&gt;</code></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endraw %}

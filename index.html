@@ -1,1 +1,116 @@
-Hello World
+---
+layout: concertina
+title: Home
+---
+
+<h1>The NeoMutt Project</h1>
+
+<p class="subtitle"><b>“Teaching an Old Dog New Tricks”</b></p>
+
+<h2>Overview</h2>
+
+<dl>
+  <dt>What is it?</dt>
+  <dd>NeoMutt is a command line mail reader (or <abbr title="Mail User Agent">MUA</abbr>).
+    It's a version of Mutt with added <b>features</b>.
+    <a class="rm" href="about.html">Read more...</a></dd>
+
+  <dt>Why?</dt>
+  <dd>The NeoMutt project is hoping to kick-start development on the Mutt project.<br>
+  NeoMutt has already attracted about twenty developers and enthusiasts.</dd>
+
+  <dt>What have you achieved, so far?</dt>
+  <dd>Lots of old Mutt patches have been brought up-to-date, tidied and documented.<br>
+    Notably, the Sidebar patch has now been adopted by upstream Mutt.
+    <a class="rm" href="feature.html">Read more...</a></dd>
+
+  <dt>How can I try it out?</dt>
+  <dd>NeoMutt is available to download for various distros:
+    <a class="rm" href="distro.html">Read more...</a></dd>
+</dl>
+
+
+<h2>I need help</h2>
+
+<p>
+  Oh, sorry to hear that. If you are a GitHub user, you can raise a
+  <a href="https://github.com/neomutt/neomutt.github.io/issues">Website issue</a> or a
+  <a href="https://github.com/neomutt/neomutt/issues">NeoMutt code issue</a>.
+<p>
+<p>
+  Alternatively, you can join the NeoMutt IRC channel:
+  <a href="irc://irc.freenode.net/neomutt">irc://irc.freenode.net/neomutt</a>
+  (read about <a href="/run/irc">some useful commands</a>), or contact the lead
+  developer, Richard&nbsp;Russon&nbsp;<a href="mailto:rich@flatcap.org">&lt;rich@flatcap.org&gt;</a>
+</p>
+
+<h2>I want to help NeoMutt</h2>
+
+<p>
+  Brilliant. There are lots of ways you can contribute to the NeoMutt project.
+  Whatever your skills, or time available, <b>you can help</b>.
+</p>
+
+<ul>
+    <li> Are you an experienced programmer? Do you want a challenge? Please have a look at
+        <a href="/dev/hard-problems">collection of hard problems</a>
+    </li>
+
+    <li>
+        You don't have much experience? You are not an experienced programmer? Or, you just don't know how to write C?
+        Then, please have a look at our <a href="/dev/newbie-tutorial">Newbie Tutorial</a>.
+        However, you can still try one of the
+        <a href="/dev/hard-problems">hard problems</a> later, if you want. Remember, the question
+        is not how much experience you have. Its how much you want to learn.
+    </li>
+
+</ul>
+
+<p>
+  Whatever your skills, however much time you can spare, <b>you</b> can make a
+  difference.
+</p>
+
+<h2>Twitter</h2>
+
+<p>
+  We have a Twitter Feed <a href="https://twitter.com/NeoMutt_Org">@NeoMutt_Org</a>.
+</p>
+
+<h2>Mailing lists</h2>
+
+<p>
+  We have two public mailing lists:
+  <a class="rm" href="/2016/08/17/news">Read more...</a></dd>
+</p>
+
+<dl>
+  <dt>NeoMutt Users' Mailing List</dt>
+  <dd>
+    Discuss your favourite features, share experiences, swap config files, ask for help...
+    <a href="http://mailman.neomutt.org/mailman/listinfo/neomutt-users-neomutt.org"><b>Subscribe</b></a></dd>
+
+  <dt>NeoMutt Developers' Mailing List</dt>
+  <dd>
+    Listen in to the developers, propose new features, offer help...
+    <a href="http://mailman.neomutt.org/mailman/listinfo/neomutt-devel-neomutt.org"><b>Subscribe</b></a></dd>
+</dl>
+
+<h2>IRC &ndash; <a href="irc://irc.freenode.net/neomutt">irc://irc.freenode.net/neomutt</a></h2>
+
+<p>
+  We now have a presence on IRC. To become familar with IRC
+  <a href="/run/irc">read about useful commands</a>. Come, say hello! Please
+  note, that we're a small group. Therefore, answers might take some time.
+</p>
+
+<h2>Latest news</h2>
+
+<ul>
+    {% for p in site.posts limit:5 %}
+    <li>
+      <b>{{ p.date | date: '%Y-%m-%d' }}</b> &ndash;
+      <a href="{{ p.url }}">{{ p.title }}</a>
+    </li>
+    {% endfor %}
+</ul>

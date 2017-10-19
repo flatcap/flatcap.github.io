@@ -1,0 +1,194 @@
+---
+layout: concertina
+title: Ifdef
+description: Conditional config options
+since: 2016-03-07
+status: stable
+---
+{% raw %}
+<div class="chapter">
+  <div class="titlepage">
+    <div>
+      <div>
+        <h1 class="title">
+        <a class="offset" id="feature/ifdef"></a>Ifdef Feature</h1>
+      </div>
+      <div>
+        <h3 class="subtitle">
+          <em>Conditional config options</em>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="support"></a>1.&#160;Support</h2>
+        </div>
+      </div>
+    </div>
+    <p>
+    <span class="bold">
+      <strong>Since:</strong>
+    </span>NeoMutt 2016-03-07</p>
+    <p>
+    <span class="bold">
+      <strong>Dependencies:</strong>
+    </span>None</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="intro"></a>2.&#160;Introduction</h2>
+        </div>
+      </div>
+    </div>
+    <p>The
+    <span class="quote">“<span class="quote">ifdef</span>”</span> feature introduces three new commands to NeoMutt and allow you to share one config file between versions of NeoMutt that may have different features compiled in.</p>
+    <pre class="screen">
+ifdef  symbol config-command [args...]
+<span class="comment"># If a symbol is defined</span>
+ifndef symbol config-command [args...]
+<span class="comment"># If a symbol is not defined</span>
+finish
+<span class="comment"># Finish reading the current file</span>
+</pre>
+    <p>Here a symbol can be a
+    <a class="link" href="/guide/reference.html#variables" title="3.&#160;Configuration Variables">$variable</a>,
+    <a class="link" href="/guide/reference.html#functions" title="4.&#160;Functions">&lt;function&gt;</a>,
+    <a class="link" href="/guide/reference.html#commands" title="2.&#160;Configuration Commands">command</a> or compile-time symbol, such as
+    <span class="quote">“<span class="quote">imap</span>”</span>.</p>
+    <p>A list of compile-time symbols can be seen in the output of the command</p>
+    <pre class="screen">
+neomutt -v
+</pre>
+    <p>(in the
+    <span class="quote">“
+    <span class="quote">Compile options</span>”</span> section).</p>
+    <p>
+    <code class="literal">finish</code> is particularly useful when combined with
+    <code class="literal">ifndef</code>. e.g.</p>
+    <pre class="screen">
+<span class="comment"># Sidebar config file</span>
+ifndef sidebar finish
+</pre>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="commands"></a>3.&#160;Commands</h2>
+        </div>
+      </div>
+    </div>
+    <div class="cmdsynopsis">
+      <p>
+        <code class="command">ifdef</code>
+        <em class="replaceable">
+          <code>symbol</code>
+        </em>
+        <em class="replaceable">
+          <code>"config-command [args]"</code>
+        </em>
+        <br />
+        <code class="command">ifndef</code>
+        <em class="replaceable">
+          <code>symbol</code>
+        </em>
+        <em class="replaceable">
+          <code>"config-command [args]"</code>
+        </em>
+        <br />
+        <code class="command">finish</code>
+      </p>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="neomuttrc"></a>4.&#160;neomuttrc</h2>
+        </div>
+      </div>
+    </div>
+    <pre class="screen">
+<span class="comment"># Example NeoMutt config file for the ifdef feature.
+
+# This feature introduces three useful commands which allow you to share
+# one config file between versions of NeoMutt that may have different
+# features compiled in.
+
+#   ifdef  symbol config-command [args...]
+#   ifndef symbol config-command [args...]
+#   finish
+# The 'ifdef' command tests whether NeoMutt understands the name of
+# a variable, function, command or compile-time symbol.
+
+# If it does, then it executes a config command.
+
+# The 'ifndef' command tests whether a symbol does NOT exist.
+
+# The 'finish' command tells NeoMutt to stop reading current config file.
+
+# If the 'trash' variable exists, set it.</span>
+ifdef trash 'set trash=~/Mail/trash'
+<span class="comment"># If the 'tag-pattern' function exists, bind a key to it.</span>
+ifdef tag-pattern 'bind index &lt;F6&gt; tag-pattern'
+<span class="comment"># If the 'imap-fetch-mail' command exists, read my IMAP config.</span>
+ifdef imap-fetch-mail 'source ~/.neomutt/imap.rc'
+<span class="comment"># If the compile-time symbol 'sidebar' does not exist, then
+# stop reading the current config file.</span>
+ifndef sidebar finish
+
+
+<span class="comment"># vim: syntax=neomuttrc</span>
+</pre>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="known-bugs"></a>5.&#160;Known Bugs</h2>
+        </div>
+      </div>
+    </div>
+    <p>None</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="credits"></a>6.&#160;Credits</h2>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>Cedric Duval
+          <code class="email">&lt;
+          <a class="email" href="mailto:cedricduval@free.fr">cedricduval@free.fr</a>&gt;</code></p>
+        </li>
+        <li class="listitem">
+          <p>Matteo F. Vescovi
+          <code class="email">&lt;
+          <a class="email" href="mailto:mfvescovi@gmail.com">mfvescovi@gmail.com</a>&gt;</code></p>
+        </li>
+        <li class="listitem">
+          <p>Richard Russon
+          <code class="email">&lt;
+          <a class="email" href="mailto:rich@flatcap.org">rich@flatcap.org</a>&gt;</code></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endraw %}

@@ -1,0 +1,160 @@
+---
+layout: concertina
+title: Attach Headers Color
+description: Color attachment headers using regex, just like mail bodies
+since: 2016-09-10
+status: stable
+---
+{% raw %}
+<div class="chapter">
+  <div class="titlepage">
+    <div>
+      <div>
+        <h1 class="title">
+        <a class="offset" id="feature/attach-headers-color"></a>Attach Headers Color Feature</h1>
+      </div>
+      <div>
+        <h3 class="subtitle">
+          <em>Color attachment headers using regex, just like mail bodies</em>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="support"></a>1.&#160;Support</h2>
+        </div>
+      </div>
+    </div>
+    <p>
+    <span class="bold">
+      <strong>Since:</strong>
+    </span>NeoMutt 2016-09-10</p>
+    <p>
+    <span class="bold">
+      <strong>Dependencies:</strong>
+    </span>None</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="intro"></a>2.&#160;Introduction</h2>
+        </div>
+      </div>
+    </div>
+    <p>This feature allows specifying regexes to color attachment headers just like the mail body would. The headers are the parts colored by the
+    <code class="literal">attachment</code> color. Coloring them is useful to highlight the results of GPGME's signature checks or simply the mimetype or size of the attachment. Only the part matched by the regex is colored.</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="usage"></a>3.&#160;Usage</h2>
+        </div>
+      </div>
+    </div>
+    <p>The
+    <code class="literal">attach_headers</code> color should be used just like the
+    <code class="literal">body</code> color.</p>
+    <pre class="screen">
+color attach_headers foreground background pattern
+</pre>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="neomuttrc"></a>4.&#160;neomuttrc</h2>
+        </div>
+      </div>
+    </div>
+    <pre class="screen">
+<span class="comment"># Example NeoMutt config file for the attach-headers-color feature.
+
+# Color if the attachment is autoviewed</span>
+color   attach_headers     brightgreen     default        "Autoview"
+<span class="comment"># Color only the brackets around the headers</span>
+color   attach_headers     brightyellow    default        "^\\[--"
+color   attach_headers     brightyellow    default        "--]$"
+<span class="comment"># Color the mime type and the size</span>
+color   attach_headers     green           default        "Type: [a-z]+/[a-z0-9\-]+"
+color   attach_headers     green           default        "Size: [0-9\.]+[KM]"
+<span class="comment"># Color GPGME signature checks</span>
+color   attach_headers     brightgreen     default        "Good signature from.*"
+color   attach_headers     brightred       default        "Bad signature from.*"
+color   attach_headers     brightred       default        "BAD signature from.*"
+color   attach_headers     brightred       default        "Note: This key has expired!"
+color   attach_headers     brightmagenta   default        "Problem signature from.*"
+color   attach_headers     brightmagenta   default        "WARNING: This key is not certified with a trusted signature!"
+color   attach_headers     brightmagenta   default        "         There is no indication that the signature belongs to the owner."
+color   attach_headers     brightmagenta   default        "can't handle these multiple signatures"
+color   attach_headers     brightmagenta   default        "signature verification suppressed"
+color   attach_headers     brightmagenta   default        "invalid node with packet of type"
+
+
+<span class="comment"># vim: syntax=neomuttrc</span>
+</pre>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="see-also"></a>5.&#160;See Also</h2>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>
+            <a class="link" href="/guide/configuration.html#color" title="9.&#160;Using Color and Mono Video Attributes">Color command</a>
+          </p>
+        </li>
+        <li class="listitem">
+          <p>
+            <a class="link" href="/guide/advancedusage.html#regex" title="2.&#160;Regular Expressions">Regular Expressions</a>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="known-bugs"></a>6.&#160;Known Bugs</h2>
+        </div>
+      </div>
+    </div>
+    <p>None</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="credits"></a>7.&#160;Credits</h2>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>Guillaume Brogi
+          <code class="email">&lt;
+          <a class="email" href="mailto:gui-gui@netcourrier.com">gui-gui@netcourrier.com</a>&gt;</code></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endraw %}

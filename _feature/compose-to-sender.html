@@ -1,0 +1,152 @@
+---
+layout: concertina
+title: Compose to Sender
+description: Send new mail to the sender of the current mail
+since: 2016-10-02
+status: stable
+---
+{% raw %}
+<div class="chapter">
+  <div class="titlepage">
+    <div>
+      <div>
+        <h1 class="title">
+        <a class="offset" id="feature/compose-to-sender"></a>Compose to Sender Feature</h1>
+      </div>
+      <div>
+        <h3 class="subtitle">
+          <em>Send new mail to the sender of the current mail</em>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="support"></a>1.&#160;Support</h2>
+        </div>
+      </div>
+    </div>
+    <p>
+    <span class="bold">
+      <strong>Since:</strong>
+    </span>NeoMutt 2016-10-02</p>
+    <p>
+    <span class="bold">
+      <strong>Dependencies:</strong>
+    </span>None</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="intro"></a>2.&#160;Introduction</h2>
+        </div>
+      </div>
+    </div>
+    <p>The compose-to-sender feature adds a new command to start composing a new email to the sender of the current message. This is not a reply, but a new, separate, message.</p>
+    <p>It works on tagged messages too, sending one email to all of the senders of the tagged messages.</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="functions"></a>3.&#160;Functions</h2>
+        </div>
+      </div>
+    </div>
+    <p>compose-to-sender adds the following function to NeoMutt. By default, it is not bound to a key.</p>
+    <div >
+      <a class="offset" id="table-compose-to-sender-functions"></a>
+      <p class="title">
+        <strong>Table&#160;8.1.&#160;compose-to-sender Functions</strong>
+      </p>
+      <div class="table-contents">
+        <table summary="compose-to-sender Functions" border="1">
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Menus</th>
+              <th>Function</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>index,pager</td>
+              <td>
+                <code class="literal">&lt;compose-to-sender&gt;</code>
+              </td>
+              <td>compose a new email to the sender of the current email</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br class="table-break" />
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="neomuttrc"></a>4.&#160;neomuttrc</h2>
+        </div>
+      </div>
+    </div>
+    <pre class="screen">
+<span class="comment"># Example NeoMutt config file for the compose-to-sender feature.
+
+# --------------------------------------------------------------------------
+# FUNCTIONS - shown with an example mapping
+# --------------------------------------------------------------------------
+# Compose a new email (not a reply) to the sender</span>
+bind index,pager @ compose-to-sender
+
+
+<span class="comment"># vim: syntax=neomuttrc</span>
+</pre>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="known-bugs"></a>5.&#160;Known Bugs</h2>
+        </div>
+      </div>
+    </div>
+    <p>None</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="credits"></a>6.&#160;Credits</h2>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>Brian Medley</p>
+        </li>
+        <li class="listitem">
+          <p>Guillaume Brogi
+          <code class="email">&lt;
+          <a class="email" href="mailto:gui-gui@netcourrier.com">gui-gui@netcourrier.com</a>&gt;</code></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endraw %}

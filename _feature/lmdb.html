@@ -1,0 +1,119 @@
+---
+layout: concertina
+title: LMDB
+description: LMDB backend for the header cache
+since: 2016-07-23
+status: stable
+---
+{% raw %}
+<div class="chapter">
+  <div class="titlepage">
+    <div>
+      <div>
+        <h1 class="title">
+        <a class="offset" id="feature/lmdb"></a>LMDB Feature</h1>
+      </div>
+      <div>
+        <h3 class="subtitle">
+          <em>LMDB backend for the header cache</em>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="support"></a>1.&#160;Support</h2>
+        </div>
+      </div>
+    </div>
+    <p>
+    <span class="bold">
+      <strong>Since:</strong>
+    </span>NeoMutt 2016-07-23</p>
+    <p>
+    <span class="bold">
+      <strong>Dependencies:</strong>
+    </span>None</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="intro"></a>2.&#160;Introduction</h2>
+        </div>
+      </div>
+    </div>
+    <p>This feature adds support for using LMDB as a storage backend for NeoMutt's header cache (hcache). It is enabled at configure time with the
+    <span class="emphasis">
+      <em>--with-lmdb=&lt;path&gt;</em>
+    </span>switch.</p>
+    <div class="note">
+      <h3 class="title">Note</h3>
+      <p>It is not recommended to store the lmdb database on a shared drive.</p>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="see-also"></a>3.&#160;See Also</h2>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>
+            <a class="link" href="/guide/optionalfeatures.html#caching" title="7.&#160;Local Caching">Local Caching</a>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="known-bugs"></a>4.&#160;Known Bugs</h2>
+        </div>
+      </div>
+    </div>
+    <p>None</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="credits"></a>5.&#160;Credits</h2>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>Pietro Cerutti
+          <code class="email">&lt;
+          <a class="email" href="mailto:gahr@gahr.ch">gahr@gahr.ch</a>&gt;</code></p>
+        </li>
+        <li class="listitem">
+          <p>Jan-Piet Mens
+          <code class="email">&lt;
+          <a class="email" href="mailto:jp@mens.de">jp@mens.de</a>&gt;</code></p>
+        </li>
+        <li class="listitem">
+          <p>Clemens Lang
+          <code class="email">&lt;
+          <a class="email" href="mailto:neverpanic@gmail.com">neverpanic@gmail.com</a>&gt;</code></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endraw %}

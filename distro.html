@@ -1,0 +1,44 @@
+---
+layout: concertina
+title: Distro Pages
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>Distributions that support NeoMutt</p>
+
+<h2>Listing</h2>
+
+<p>If your distro isn't listed here, you can always build your own NeoMutt from
+the source code.</p>
+
+<table summary="list of distros">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Install Instructions</th>
+      <th>Maintainer</th>
+      <th>Home Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="/images/source.png"></td>
+      <td><a href="/dev/build">Build from Source</a></td>
+      <td>NeoMutt Project</td>
+      <td><a href="https://github.com/neomutt/neomutt">https://github.com/neomutt/neomutt</a></td>
+    </tr>
+    {% for d in site.distro %}
+      <tr>
+        <td><img src="/images/distros/{{ d.icon }}"></td>
+        <td><a href="{{ d.url }}">{{ d.distro }}</a></td>
+        <td>
+          {% assign p = site.data.people[d.maintainer] %}
+          {% if p %}{{p.name}}{% else %}{{d.maintainer}}{% endif %}
+        </td>
+        <td>{% if d.homepage %}<a href="{{d.homepage}}">{{d.homepage}}</a>{% endif %}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+

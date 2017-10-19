@@ -1,0 +1,46 @@
+{% include header.html %}
+
+<div class="container container-left">
+    <div class="row">
+        <div class="col-md-3 hidden-xs">
+            <div class="sidebar well">
+                {% include home-menu.html %}
+                {% include feature-menu.html %}
+                <!-- {% include howto-menu.html %} -->
+                {% include guide-menu.html %}
+                {% include distro-menu.html %}
+                {% include contrib-menu.html %}
+                {% include person-menu.html %}
+                {% include man-menu.html %}
+                {% include dev-menu.html %}
+                {% include code-menu.html %}
+                {% include rfc-menu.html %}
+                <!-- {% include run-menu.html %} -->
+            </div>
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+                <h1><a href="{{ page.url }}">{{ page.date | date: "%b %-d, %Y" }} - {{ page.title }}</a></h1>
+                <div class="post-content">
+                {{ content }}
+                </div>
+            </div>
+          </div>
+          <div class="author">
+            {% assign person = site.data.people[page.author] %}
+            <a href="{{ person.github }}">{{ person.name }} ({{ page.author }})</h2>
+          </div>
+          <div class="pagination">
+              {% if page.previous %}
+                <a class="btn btn-default" href="{{ page.previous.url }}" class="previous">Older</a>
+              {% endif %}
+              {% if page.next %}
+                <a class="btn btn-default" href="{{ page.next.url }}" class="next">Newer</a>
+              {% endif %}
+          </div>
+        </div>
+    </div>
+</div>
+
+{% include footer.html %}

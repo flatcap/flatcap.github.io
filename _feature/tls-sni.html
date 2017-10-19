@@ -1,0 +1,110 @@
+---
+layout: concertina
+title: TLS-SNI
+description: Negotiate with a server for a TLS/SSL certificate
+since: 2016-03-07
+status: stable
+---
+{% raw %}
+<div class="chapter">
+  <div class="titlepage">
+    <div>
+      <div>
+        <h1 class="title">
+        <a class="offset" id="feature/tls-sni"></a>TLS-SNI Feature</h1>
+      </div>
+      <div>
+        <h3 class="subtitle">
+          <em>Negotiate with a server for a TLS/SSL certificate</em>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="support"></a>1.&#160;Support</h2>
+        </div>
+      </div>
+    </div>
+    <p>
+    <span class="bold">
+      <strong>Since:</strong>
+    </span>NeoMutt 2016-03-07</p>
+    <div class="variablelist">
+      <dl class="variablelist">
+        <dt>
+          <span class="term">
+            <span class="bold">
+              <strong>Dependencies:</strong>
+            </span>
+          </span>
+        </dt>
+        <dd>
+          <p>OpenSSL</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="intro"></a>2.&#160;Introduction</h2>
+        </div>
+      </div>
+    </div>
+    <p>The
+    <span class="quote">“<span class="quote">TLS-SNI</span>”</span> feature adds support for TLS virtual hosting. If your mail server doesn't support this everything will still work normally.</p>
+    <p>TLS supports sending the expected server hostname during the handshake, via the SNI extension. This can be used to select a server certificate to issue to the client, permitting virtual-hosting without requiring multiple IP addresses.</p>
+    <p>This has been tested against Exim 4.80, which optionally logs SNI and can perform vhosting.</p>
+    <p>To verify TLS SNI support by a server, you can use:</p>
+    <pre class="screen">
+openssl s_client -host &lt;imap server&gt; -port &lt;port&gt; -tls1 -servername &lt;imap server&gt;
+</pre>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="known-bugs"></a>3.&#160;Known Bugs</h2>
+        </div>
+      </div>
+    </div>
+    <p>None</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="credits"></a>4.&#160;Credits</h2>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>Jeremy Katz
+          <code class="email">&lt;
+          <a class="email" href="mailto:katzj@linuxpower.org">katzj@linuxpower.org</a>&gt;</code></p>
+        </li>
+        <li class="listitem">
+          <p>Phil Pennock
+          <code class="email">&lt;
+          <a class="email" href="mailto:mutt-dev@spodhuis.demon.nl">mutt-dev@spodhuis.demon.nl</a>&gt;</code></p>
+        </li>
+        <li class="listitem">
+          <p>Richard Russon
+          <code class="email">&lt;
+          <a class="email" href="mailto:rich@flatcap.org">rich@flatcap.org</a>&gt;</code></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endraw %}

@@ -1,0 +1,76 @@
+---
+layout: concertina
+title: Contrib
+---
+
+<h1>User Contributions to NeoMutt</h1>
+
+<p>Further project data and information provided by NeoMutt users</p>
+
+<h2>Participation</h2>
+
+<p>
+  NeoMutt is a fantastic program. It's versatile, configurable, scriptable...<br>
+  This is your chance to help other NeoMutt users...
+</p>
+
+<ul>
+  <li>Have <b>you</b> got a config file that <b>everybody</b> should be using?</li>
+  <li>Have <b>you</b> written a script that makes life easier?</li>
+</ul>
+
+<p>
+  If you are a GitHub user, you can raise a
+  <a href="https://github.com/neomutt/neomutt/issues">NeoMutt issue</a> to tell us about your idea.</br>
+  Or, you can contact the lead developer, Richard&nbsp;Russon&nbsp;<a href="mailto:rich@flatcap.org">&lt;rich@flatcap.org&gt;</a>
+</p>
+
+
+<h2>Status</h2>
+
+<table summary="list of contrib">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Author</th>
+      <th>Readme</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in site.contrib %}
+      {% if c.status == 'ignore' %}
+        {% continue %}
+      {% endif %}
+      <tr>
+        <td><a href="{{ c.url }}">{{ c.title }}</a></td>
+        <td>{{ c.description }}</td>
+        <td>
+          <a href="https://github.com/{{ c.username }}">{{ c.author }}</a>
+        </td>
+        {% if c.dir %}
+        <td><a href="https://github.com/neomutt/neomutt/tree/master/contrib/{{ c.dir }}#readme">{{ c.dir }}</a></td>
+        {% else %}
+        <td>&mdash;</td>
+        {% endif %}
+        <td>
+          {% case c.status %}
+          {% when 'stable' %}
+          {% assign span = true %}
+            <span class="good">&#x2714;
+          {% when 'devel' %}
+            <span class="devel">&#x26A0;
+          {% endcase %}
+            {{ c.status }}
+          {% if span == true %}
+            </span>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+

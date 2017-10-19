@@ -1,0 +1,138 @@
+---
+layout: concertina
+title: Fmemopen
+description: Replace some temporary files with memory buffers
+since: 2016-03-07
+status: disabled
+warning: fmemopen has been disabled until an awkward bug has been fixed
+---
+{% raw %}
+<div class="chapter">
+  <div class="titlepage">
+    <div>
+      <div>
+        <h1 class="title">
+        <a class="offset" id="feature/fmemopen"></a>Fmemopen Feature</h1>
+      </div>
+      <div>
+        <h3 class="subtitle">
+          <em>Replace some temporary files with memory buffers</em>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="support"></a>1.&#160;Support</h2>
+        </div>
+      </div>
+    </div>
+    <p>
+    <span class="bold">
+      <strong>Since:</strong>
+    </span>NeoMutt 2016-03-07</p>
+    <div class="variablelist">
+      <dl class="variablelist">
+        <dt>
+          <span class="term">
+            <span class="bold">
+              <strong>Dependencies:</strong>
+            </span>
+          </span>
+        </dt>
+        <dd>
+          <p>
+          <code class="literal">open_memstream()</code>,
+          <code class="literal">fmemopen()</code>from glibc</p>
+        </dd>
+      </dl>
+    </div>
+    <p>This feature can be enabled by running
+    <code class="literal">configure</code> with the option
+    <code class="literal">--enable-fmemopen</code></p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="intro"></a>2.&#160;Introduction</h2>
+        </div>
+      </div>
+    </div>
+    <p>The
+    <span class="quote">“
+    <span class="quote">fmemopen</span>”</span> feature speeds up some searches.</p>
+    <p>This feature changes a few places where NeoMutt creates temporary files. It replaces them with in-memory buffers. This should improve the performance when searching the header or body using the
+    <a class="link" href="/guide/reference.html#thorough-search" title="3.379.&#160;thorough_search">$thorough_search</a> option.</p>
+    <p>There are no user-configurable parts.</p>
+    <p>This feature depends on
+    <code class="literal">open_memstream()</code>and
+    <code class="literal">fmemopen()</code>. They are provided by glibc. Without them, NeoMutt will simply create temporary files.</p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="see-also"></a>3.&#160;See Also</h2>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>
+            <a class="link" href="/guide/optionalfeatures.html#compile-time-features" title="1.1.&#160;Enabling/Disabling Features">Compile-Time Features</a>
+          </p>
+        </li>
+        <li class="listitem">
+          <p>
+            <code class="literal">fmemopen(3)</code>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="known-bugs"></a>4.&#160;Known Bugs</h2>
+        </div>
+      </div>
+    </div>
+    <p>
+      <a class="ulink" href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=834408" target="_top">debian bug 834408</a>
+    </p>
+  </div>
+  <div class="sect1">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h2 class="title" style="clear: both">
+          <a class="offset" id="credits"></a>5.&#160;Credits</h2>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>Julius Plenz
+          <code class="email">&lt;
+          <a class="email" href="mailto:plenz@cis.fu-berlin.de">plenz@cis.fu-berlin.de</a>&gt;</code></p>
+        </li>
+        <li class="listitem">
+          <p>Richard Russon
+          <code class="email">&lt;
+          <a class="email" href="mailto:rich@flatcap.org">rich@flatcap.org</a>&gt;</code></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endraw %}
